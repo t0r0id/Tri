@@ -7,7 +7,7 @@ from read_file import read,find_distance,find_segment_length
 
 def find_neighbour(route,a,b):
 # Swaps a and b in route and reorganize route
-# eg. route= 1>2>3>4>5>6>7 a=3 b=5
+# eg. route= 1>2>3>4>5>6>7 a=3 b=6
 # new_route= 1>2>6>5>4>3>7
     t1=min(a,b)
     t2=max(a,b)
