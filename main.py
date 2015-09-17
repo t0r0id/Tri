@@ -2,14 +2,17 @@ import time
 import numpy as np
 from Plot import plotTSP
 from read_file import read,find_distance,find_segment_length
-from knapsack import knpsck
+from knapsack import knpsck_value_mat,knpsck_select_items
 from opt_2 import opt2
 from greedy_1 import greedy
 
 
 data=read("Co-ordinates.xlsx")
 capacity=24
-points=knpsck(data,capacity)
+value_mat=knpsck_value_mat(data,capacity)
+selected=knpsck_select_items(value_mat,capacity,data)
+points=data[selected][:]
+
 flag=0
 while flag==0:
     opt2_result=opt2(points)
@@ -24,5 +27,5 @@ while flag==0:
         plotTSP(route, points,data)
     else:
         capacity=capacity-1
-        points=knpsck(data,capacity)
-
+        selected=knpsck_select_items(value_mat,capacity,data)
+        points=data[selected][:]

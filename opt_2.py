@@ -1,8 +1,7 @@
 import time
 import numpy as np
-from Plot import plotTSP
 from read_file import read,find_distance,find_segment_length
-from knapsack import knpsck
+
 
 def find_neighbour(route,a,b):
     t1=min(a,b)
